@@ -38,9 +38,15 @@ git clone https://github.com/vballoli/nfnets-pytorch.git
      
 <div align="center">
      
+# Problem Statement Formulation
+
+<img src="assets/SBR_Task.png" width="450">
+  
+---     
+     
 # Results
 
-<img src="assets/Results_plot.png">
+<img src="assets/Results_plot.png" width="600">
   
 ---
      
