@@ -14,6 +14,23 @@
  
 
 ---
+   
+</div>  
+     
+#### Dependencies
+
+   
+     
+This code was developed with ```python3.6```
+```
+Python (3.6.x)
+PyTorch (1.7.x)
+CUDA (10.2)
+cuDNN (7.6.5)
+networkx (2.5.1)
+numpy (1.19.5)     
+```
+<div align="center">
      
 # Results
 
