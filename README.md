@@ -17,6 +17,37 @@
    
 </div>  
      
+#### Usage     
+     
+```bash
+python3 train.py [-h] [--dataset DATASET] [--batchSize BATCHSIZE]
+               [--hiddenSize HIDDENSIZE] [--nhead NHEAD] [--layer LAYER]
+               [--feedforward FEEDFORWARD] [--epoch EPOCH] [--lr LR]
+               [--lr_dc LR_DC] [--lr_dc_step LR_DC_STEP] [--l2 L2]
+               [--patience PATIENCE] [--validation] 
+               [--valid_portion VALID_PORTION]
+
+Arguments:
+  -h, --help            Description and Help Message
+  --dataset DATASET     Name of the Dataset:
+                        diginetica | yoochoose1_64
+  --batchSize BATCHSIZE
+                        Batch size
+  --hiddenSize HIDDENSIZE
+                        Hidden state dimensions
+  --epoch EPOCH         The number of epochs to train
+  --lr LR               Set the Learning Rate
+  --lr_dc LR_DC         Set the decay rate used with Learning rate
+  --lr_dc_step LR_DC_STEP
+                        Steps in Learning rate decay
+  --l2 L2               Assign L2 Penalty
+  --patience PATIENCE   Early stopping criterion
+  --validation          validation
+  --valid_portion VALID_PORTION
+                        Portion of train-set to split into val-set
+```     
+---     
+     
 #### Dependencies
 
    
