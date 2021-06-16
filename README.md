@@ -3,7 +3,7 @@
 
 <samp>
      
-# 🛰️ Improved Representation Learning for Session-based Recommendation 📡
+# Improved Representation Learning for Session-based Recommendation
 
     
 
