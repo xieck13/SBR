@@ -61,7 +61,7 @@ cuDNN (7.6.5)
 networkx (2.5.1)
 numpy (1.19.5)     
 ```
-To use AGC for stable training for varied batch sizes:
+For original source of AGC, for further tweaks:
      
 ```
 git clone https://github.com/vballoli/nfnets-pytorch.git   
