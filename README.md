@@ -10,7 +10,7 @@
 | **[ [```Model Architecture```](<assets/TAGNN++.png>) ]** | **[ [```Task```](<assets/SBR_Task.png>) ]** 
 |:-------------------:|:-------------------:|
 
-  Python implementation for "TAGNN++: Improved Representation Learning for Session-based Recommendation"
+  PyTorch implementation for "TAGNN++: Improved Representation Learning for Session-based Recommendation"
  
 
 ---
