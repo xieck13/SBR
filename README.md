@@ -3,9 +3,7 @@
 
 <samp>
      
-# Improved Representation Learning for Session-based Recommendation
-
-    
+# Improved Representation Learning for Session-based Recommendation ([arXiv](https://arxiv.org))
 
 | **[ [```Model Architecture```](<assets/TAGNN++.png>) ]** | **[ [```Task```](<assets/SBR_Task.png>) ]** 
 |:-------------------:|:-------------------:|
@@ -87,6 +85,19 @@ For further details, contact **Sai Mitheran** via [Linkedin](https://www.linkedi
      
   </samp>  
   
-  
-  
   </div>  
+     
+### Reference
+To cite our paper:
+```
+@misc{xyz,
+    title={Improved Representation Learning for Session-based Recommendation},
+    author={},
+    year={2021},
+    eprint={},
+    archivePrefix={arXiv},
+    primaryClass={cs.IR}
+}
+```
+  
+
