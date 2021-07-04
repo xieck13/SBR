@@ -5,9 +5,10 @@
      
 # Improved Representation Learning for Session-based Recommendation ([arXiv](https://arxiv.org))
 
-| **[ [```Model Architecture```](<assets/TAGNN++.png>) ]** | **[ [```Task```](<assets/SBR_Task.png>) ]** 
-|:-------------------:|:-------------------:|
+| **[ [```Model Architecture```](<assets/TAGNN++.png>) ]** | **[ [```Task```](<assets/SBR_Task.png>) ]** | **[ [```Paper```](<https://drive.google.com/file/d/1d5qw3fzLhNent8Z00cidBE1Ugr6Eqyps/view?usp=sharing>) ]** 
+|:-------------------:|:-------------------:|:-------------------:|
 
+     
 PyTorch implementation of the model TAGNN++, presented in the paper " Improved Representation Learning for Session-based Recommendation"
  
 
