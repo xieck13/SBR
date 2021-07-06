@@ -3,13 +3,13 @@
 
 <samp>
      
-# Improved Representation Learning for Session-based Recommendation ([arXiv](https://arxiv.org))
+# Improved Representation Learning for Session-based Recommendation ([arXiv](https://arxiv.org/abs/2107.01516))
 
-| **[ [```Model Architecture```](<assets/TAGNN++.png>) ]** | **[ [```Task```](<assets/SBR_Task.png>) ]** | **[ [```Paper```](<https://drive.google.com/file/d/1d5qw3fzLhNent8Z00cidBE1Ugr6Eqyps/view?usp=sharing>) ]** 
-|:-------------------:|:-------------------:|:-------------------:|
+| **[ [```Model Architecture```](<assets/TAGNN++.png>) ]** | **[ [```Task```](<assets/SBR_Task.png>) ]** | **[ [```Paper```](<https://drive.google.com/file/d/1d5qw3fzLhNent8Z00cidBE1Ugr6Eqyps/view?usp=sharing>) ]** | **[ [```arXiv```](<https://arxiv.org/abs/2107.01516>) ]** 
+|:-------------------:|:-------------------:|:-------------------:|:-------------------:|
 
      
-PyTorch implementation of the model TAGNN++, presented in the paper " Improved Representation Learning for Session-based Recommendation"
+PyTorch implementation of the model TAGNN++, presented in the paper "Improved Representation Learning for Session-based Recommendation"
  
 
 ---
@@ -87,18 +87,21 @@ For further details, contact **Sai Mitheran** via [Linkedin](https://www.linkedi
   </samp>  
   
   </div>  
+   
+---     
      
 ### Reference
+     
 To cite our paper:
-```
-@misc{xyz,
+
+```bibtex
+@article{mitheran2021mproved,
     title={Improved Representation Learning for Session-based Recommendation},
-    author={},
+    author={Sai Mitheran and Abhinav Java and Surya Kant Sahu and Arshad Shaikh},
     year={2021},
-    eprint={},
-    archivePrefix={arXiv},
-    primaryClass={cs.IR}
+    journal={arXiv preprint arXiv:2107.01516}
 }
 ```
-  
+
+---
 
