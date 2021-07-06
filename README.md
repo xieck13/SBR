@@ -11,10 +11,18 @@
      
 PyTorch implementation of the model TAGNN++, presented in the paper "Improved Representation Learning for Session-based Recommendation"
  
-
+     
 ---
    
 </div>  
+     
+</samp> 
+     
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/improved-representation-learning-for-session/session-based-recommendations-on-diginetica)](https://paperswithcode.com/sota/session-based-recommendations-on-diginetica?p=improved-representation-learning-for-session)     
+  
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/improved-representation-learning-for-session/session-based-recommendations-on-yoochoose1-1)](https://paperswithcode.com/sota/session-based-recommendations-on-yoochoose1-1?p=improved-representation-learning-for-session)     
+     
+<samp>
      
 #### Usage     
      
