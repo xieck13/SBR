@@ -80,7 +80,7 @@ git clone https://github.com/vballoli/nfnets-pytorch.git
   
 ---
      
-For further details, contact **Sai Mitheran** via [Linkedin](https://www.linkedin.com/in/sai-mitheran-4b9422187/), or via email by clicking the icon below. Pretrained models on the Diginetica benchmark can be downloaded from the Google Drive Link.    
+For further details, contact **Sai Mitheran** via [Linkedin](https://www.linkedin.com/in/sai-mitheran-4b9422187/), or via email by clicking the icon below.  
 
 <a href="mailto:saimitheran06@gmail.com?"><img src="https://img.shields.io/badge/gmail-%23DD0031.svg?&style=for-the-badge&logo=gmail&logoColor=white"/></a>     
      
