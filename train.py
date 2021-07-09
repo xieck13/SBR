@@ -11,8 +11,7 @@ from torch.utils.tensorboard import SummaryWriter
 def str2bool(v):
     return v.lower() in ('true')
 
-# Default args used for Diginetica - Comment out for custom args passed in through command line
-
+# Default args used for Diginetica 
 
 class Diginetica_arg():
     dataset = 'diginetica'
@@ -30,7 +29,7 @@ class Diginetica_arg():
     valid_portion = 0.1
 
 
-# Default args used for Yoochoose1_64 - Comment out for custom args passed in through command line
+# Default args used for Yoochoose1_64
 
 class Yoochoose_arg():
     dataset = 'yoochoose1_64'
