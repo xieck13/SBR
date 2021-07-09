@@ -8,28 +8,8 @@ from model import *
 from torch.utils.tensorboard import SummaryWriter
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', default='sample',
-                    help='Dataset name: diginetica | yoochoose1_64')
-parser.add_argument('--batchSize', type=int,
-                    default=50, help='Batch size')
-parser.add_argument('--hiddenSize', type=int,
-                    default=100, help='Hidden state dimensions')
-parser.add_argument('--epoch', type=int, default=30,
-                    help='The number of epochs to train for')
-parser.add_argument('--lr', type=float, default=1e-3,
-                    help='Set the Learning Rate')
-parser.add_argument('--lr_dc', type=float, default=0.1,
-                    help='Set the decay rate for Learning rate')
-parser.add_argument('--lr_dc_step', type=int, default=3,
-                    help='Steps for learning rate decay')
-parser.add_argument('--l2', type=float, default=1e-5, help='Assign L2 Penalty')
-parser.add_argument('--patience', type=int, default=10,
-                    help='Used for early stopping criterion')
-parser.add_argument('--validation', action='store_true', help='validation')
-parser.add_argument('--valid_portion', type=float, default=0.1,
-                    help='Portion of train set to split into val set')
-opt = parser.parse_args()
+def str2bool(v):
+    return v.lower() in ('true')
 
 # Default args used for Diginetica - Comment out for custom args passed in through command line
 
@@ -50,6 +30,8 @@ class Diginetica_arg():
     valid_portion = 0.1
 
 
+# Default args used for Yoochoose1_64 - Comment out for custom args passed in through command line
+
 class Yoochoose_arg():
     dataset = 'yoochoose1_64'
     batchSize = 75
@@ -66,24 +48,23 @@ class Yoochoose_arg():
     valid_portion = 0.1
 
 
-if opt.dataset == 'diginetica':
-    opt = Diginetica_arg()
-
-else:
-    opt = Yoochoose_arg()
-
-
-def main():
+def main(opt):
     model_save_dir = 'saved/'
-    train_data = pickle.load(
-        open('datasets/cikm16/raw' + '/train.txt', 'rb'))
-
     writer = SummaryWriter(log_dir='with_pos/logs')
 
-    opt.dataset = 'diginetica'
-    train_data = pickle.load(
-        open('datasets/cikm16/raw' +
-             '/train.txt', 'rb'))
+    if opt.dataset == 'diginetica':
+        print("here, v1")
+        train_data = pickle.load(
+            open('datasets/cikm16/raw' + '/train.txt', 'rb'))
+        test_data = pickle.load(
+            open('datasets/cikm16/raw' + '/test.txt', 'rb'))
+
+    elif opt.dataset == 'yoochoose1_64':
+        print("here, v2")
+        train_data = pickle.load(
+            open('datasets/yoochoose1_64/raw' + '/train.txt', 'rb'))
+        test_data = pickle.load(
+            open('datasets/yoochoose1_64/raw' + '/test.txt', 'rb'))
 
     if opt.validation:
         train_data, valid_data = split_validation(
@@ -91,8 +72,6 @@ def main():
         test_data = valid_data
     else:
         print('Testing dataset used validation set')
-        test_data = pickle.load(
-            open('datasets/cikm16/raw' + '/test.txt', 'rb'))
 
     train_data = Dataset(train_data, shuffle=True)
     test_data = Dataset(test_data, shuffle=False)
@@ -150,4 +129,40 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dataset', default='diginetica',
+                        help='Dataset name: diginetica | yoochoose1_64')
+    parser.add_argument('--defaults', type=str2bool,
+                        default=True, help='Use default configuration')
+    parser.add_argument('--batchSize', type=int,
+                        default=50, help='Batch size')
+    parser.add_argument('--hiddenSize', type=int,
+                        default=100, help='Hidden state dimensions')
+    parser.add_argument('--epoch', type=int, default=30,
+                        help='The number of epochs to train for')
+    parser.add_argument('--lr', type=float, default=1e-3,
+                        help='Set the Learning Rate')
+    parser.add_argument('--lr_dc', type=float, default=0.1,
+                        help='Set the decay rate for Learning rate')
+    parser.add_argument('--lr_dc_step', type=int, default=3,
+                        help='Steps for learning rate decay')
+    parser.add_argument('--l2', type=float, default=1e-5,
+                        help='Assign L2 Penalty')
+    parser.add_argument('--patience', type=int, default=10,
+                        help='Used for early stopping criterion')
+    parser.add_argument('--validation', action='store_true', help='validation')
+    parser.add_argument('--valid_portion', type=float, default=0.1,
+                        help='Portion of train set to split into val set')
+    opt = parser.parse_args()
+
+    if opt.defaults:
+        if opt.dataset == 'diginetica':
+            opt = Diginetica_arg()
+
+        else:
+            opt = Yoochoose_arg()
+
+    else:
+        print("Not using the default configuration")
+
+    main(opt)
