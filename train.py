@@ -112,7 +112,7 @@ def main(opt):
                        str(epoch) + '_mrr_' + str(mrr) + '_.pt')
 
         print('Best Result:')
-        print('\tRecall@20:\t%.4f\tMMR@20:\t%.4f\tEpoch:\t%d,\t%d' %
+        print('\tRecall@20:\t%.4f\tMRR@20:\t%.4f\tEpoch:\t%d,\t%d' %
               (best_result[0], best_result[1], best_epoch[0], best_epoch[1]))
 
         bad_counter += 1 - flag
