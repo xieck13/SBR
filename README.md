@@ -27,7 +27,7 @@ PyTorch implementation of the model TAGNN++, presented in the paper "Improved Re
 #### Usage     
      
 ```bash
-python3 train.py [-h] [--dataset DATASET] [--batchSize BATCHSIZE]
+python3 train.py [-h] [--dataset DATASET] [--defaults DEFAULTS] [--batchSize BATCHSIZE]
                [--hiddenSize HIDDENSIZE] [--nhead NHEAD] [--layer LAYER]
                [--feedforward FEEDFORWARD] [--epoch EPOCH] [--lr LR]
                [--lr_dc LR_DC] [--lr_dc_step LR_DC_STEP] [--l2 L2]
@@ -38,6 +38,7 @@ Arguments:
   -h, --help            Description and Help Message
   --dataset DATASET     Name of the Dataset:
                         diginetica | yoochoose1_64
+  --defaults DEFAULTS   Use default configuration   
   --batchSize BATCHSIZE
                         Batch size
   --hiddenSize HIDDENSIZE
