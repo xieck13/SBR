@@ -52,14 +52,12 @@ def main(opt):
     writer = SummaryWriter(log_dir='with_pos/logs')
 
     if opt.dataset == 'diginetica':
-        print("here, v1")
         train_data = pickle.load(
             open('datasets/cikm16/raw' + '/train.txt', 'rb'))
         test_data = pickle.load(
             open('datasets/cikm16/raw' + '/test.txt', 'rb'))
 
     elif opt.dataset == 'yoochoose1_64':
-        print("here, v2")
         train_data = pickle.load(
             open('datasets/yoochoose1_64/raw' + '/train.txt', 'rb'))
         test_data = pickle.load(
