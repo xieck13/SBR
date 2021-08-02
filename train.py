@@ -52,10 +52,14 @@ def main(opt):
     writer = SummaryWriter(log_dir='with_pos/logs')
 
     if opt.dataset == 'diginetica':
+        # train_data = pickle.load(
+        #     open('datasets/cikm16/raw' + '/train.txt', 'rb'))
+        # test_data = pickle.load(
+        #     open('datasets/cikm16/raw' + '/test.txt', 'rb'))
         train_data = pickle.load(
-            open('datasets/cikm16/raw' + '/train.txt', 'rb'))
+            open('datasets/diginetica' + '/train.txt', 'rb'))
         test_data = pickle.load(
-            open('datasets/cikm16/raw' + '/test.txt', 'rb'))
+            open('datasets/diginetica' + '/test.txt', 'rb'))
 
     elif opt.dataset == 'yoochoose1_64':
         train_data = pickle.load(
@@ -110,10 +114,11 @@ def main(opt):
             flag = 1
             torch.save(model, model_save_dir + 'epoch_' +
                        str(epoch) + '_mrr_' + str(mrr) + '_.pt')
-
+        print('='*10)
         print('Best Result:')
         print('\tRecall@20:\t%.4f\tMRR@20:\t%.4f\tEpoch:\t%d,\t%d' %
               (best_result[0], best_result[1], best_epoch[0], best_epoch[1]))
+        print('='*10)
 
         bad_counter += 1 - flag
 

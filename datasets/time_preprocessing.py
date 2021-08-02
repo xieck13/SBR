@@ -12,16 +12,25 @@ import os
 from tqdm import tqdm
 
 
-class opt:
-    dataset = "yoochoose"
-
+parser = argparse.ArgumentParser()
+parser.add_argument('--dataset', default='diginetica', help='dataset name: diginetica/yoochoose/sample')
+opt = parser.parse_args()
 
 dataset = 'train-item-views.csv'
 
-if opt.dataset == 'yoochoose':
-    dataset = 'yoochoose/yoochoose-clicks.dat'
+if opt.dataset == 'diginetica':
+    dataset = 'diginetica/train-item-views.csv'
+elif opt.dataset =='yoochoose':
+    with open('yoochoose/yoochoose-clicks.dat', 'r') as f:
+        data = f.readlines()
 
 
+    with open('yoochoose/yoochoose-clicks-1.dat', 'w') as f:
+        f.write(','.join(['sessionId', 'timeframe','itemId', 'Category']))
+        f.write('\n')
+        for d in tqdm(data):
+            f.write(d)
+    dataset = 'yoochoose/yoochoose-clicks-1.dat'
 print("-- Starting @ %ss" % datetime.datetime.now())
 
 try:
@@ -41,7 +50,7 @@ except:
         curid = -1
         curdate = None
         for data in tqdm(reader):
-            sessid = data['session_id']
+            sessid = data['sessionId']
             if curdate and not curid == sessid:
                 date = ''
                 if opt.dataset == 'yoochoose':
@@ -54,15 +63,18 @@ except:
             if opt.dataset == 'yoochoose':
                 item, cat = data['item_id'], data['category_id']
             else:
-                item = data['item_id'], int(data['timeframe'])
+                item, cat = data['itemId'], 0
             curdate = ''
             if opt.dataset == 'yoochoose':
                 curdate = data['timestamp']
             else:
                 curdate = data['eventdate']
-
-            temp_curdate = datetime.datetime.strptime(
-                curdate, '%Y-%m-%dT%H:%M:%S.%fZ').timestamp()
+            if opt.dataset == 'yoochoose':
+                temp_curdate = datetime.datetime.strptime(
+                    curdate, '%Y-%m-%dT%H:%M:%S.%fZ').timestamp()
+            else:
+                temp_curdate = datetime.datetime.strptime(
+                    curdate, '%Y-%m-%d').timestamp()
             if sessid in sess_clicks:
                 sess_clicks[sessid] += [(item, cat, temp_curdate)]
             else:
@@ -80,8 +92,8 @@ except:
                 sess_clicks[i] = [c[0] for c in sorted_clicks]
         sess_date[curid] = date
 
-    pickle.dump((sess_clicks, sess_date), open(
-        "./yoochoose_full/temp.pkl", "wb"))
+    # pickle.dump((sess_clicks, sess_date), open(
+    #     "./yoochoose_full/temp.pkl", "wb"))
 print("-- Reading data @ %ss" % datetime.datetime.now())
 
 # Filter out length 1 sessions
@@ -321,6 +333,7 @@ for idx, item in enumerate(te_timestamps[:30]):
     te_time_stamps.append(new_item)
 
 print("te_timestamps_new : ", te_time_stamps[:30])
+print(len(te_seqs))
 te_timestamps = te_time_stamps
 del te_time_stamps
 tes = (te_seqs, te_cats, te_timestamps, te_labs)
